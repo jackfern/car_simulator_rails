@@ -1,0 +1,27 @@
+<p><span style="background-color:<%=@car.get_color%>">Make: <%=@car.get_make%></span></p>
+<p>Model year: <%=@car.get_model_year%></p>
+<p>Speed: <%=@car.get_speed%> km/h</p>
+<p>Lights: <%=@car.get_lights%></p>
+
+<br/>
+<form action="/car/accelerate">
+  <input type="submit" value="Accelerate"/>
+</form>
+<form action="/car/brake">
+  <input type="submit" value="Brake">
+</form>
+<form action="/car/toggle_lights">
+  <input type="submit" value="Lights">
+</form>
+<br/>
+<p>Parking Brake</p>
+<form action="/car/toggle_parking_brake" method="get">
+  <%= radio_button_tag 'parking_brake','true', @parking_brake_on%>
+  Set<br/>
+  <%= radio_button_tag 'parking_brake','false', @parking_brake_off%>
+  Release<br/>
+  <input type="submit" value="Change parking brake"/>
+</form>
+
+<hr>
+<%=Time.now%>
